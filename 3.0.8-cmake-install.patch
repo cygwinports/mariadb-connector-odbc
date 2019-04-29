@@ -1,0 +1,19 @@
+--- origsrc/mariadb-connector-odbc-3.0.8-ga-src/CMakeLists.txt	2019-01-03 19:13:20.000000000 -0500
++++ src/mariadb-connector-odbc-3.0.8-ga-src/CMakeLists.txt	2019-04-29 14:11:02.791900300 -0400
+@@ -299,7 +299,7 @@ IF(WIN32)
+ ENDIF()
+ 
+ 
+-SET(CPACK_PACKAGE_NAME "mariadb_connector_odbc")
++SET(CPACK_PACKAGE_NAME "mariadb-connector-odbc")
+ IF(WIN32)
+   ADD_SUBDIRECTORY(wininstall)
+ ELSE()
+@@ -311,6 +311,7 @@ ELSE()
+   INSTALL(TARGETS
+           maodbc
+           LIBRARY DESTINATION ./${INSTALL_LIB_SUFFIX}
++          RUNTIME DESTINATION ./${INSTALL_LIB_SUFFIX}
+           COMPONENT ODBCLibs)
+ 
+   INSTALL(FILES

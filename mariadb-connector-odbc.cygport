@@ -1,0 +1,24 @@
+inherit cmake
+
+NAME="mariadb-connector-odbc"
+VERSION=3.0.8
+RELEASE=1
+CATEGORY="Database"
+SUMMARY="MySQL/MariaDB ODBC driver"
+DESCRIPTION="MariaDB Connector/ODBC is a database driver that uses the industry
+standard Open Database Connectivity (ODBC) API."
+HOMEPAGE="https://mariadb.com/kb/en/library/mariadb-connector-odbc/"
+SRC_URI="https://downloads.mariadb.org/f/connector-odbc-${VERSION}/mariadb-connector-odbc-${VERSION}-ga-src.tar.gz?serve"
+SRC_DIR="mariadb-connector-odbc-${VERSION}-ga-src"
+PATCH_URI="
+	3.0.8-cmake-install.patch
+	3.0.8-iodbc.patch
+	3.0.8-system-libmariadb.patch
+"
+
+CYGCMAKE_ARGS="
+	-DINSTALL_LAYOUT=RPM
+	-DMARIADB_LINK_DYNAMIC=ON
+"
+
+DIFF_EXCLUDES="ma_odbc_version.h mariadb-odbc-driver-uni.def"

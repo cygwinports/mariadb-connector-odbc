@@ -1,0 +1,10 @@
+--- origsrc/mariadb-connector-odbc-3.0.8-ga-src/CMakeLists.txt	2019-01-03 19:13:20.000000000 -0500
++++ src/mariadb-connector-odbc-3.0.8-ga-src/CMakeLists.txt	2019-04-29 14:11:02.791900300 -0400
+@@ -261,6 +261,7 @@ CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/maria
+ IF(MARIADB_LINK_DYNAMIC)# OR USE_SYSTEM_INSTALLED_LIB)
+   IF(USE_SYSTEM_INSTALLED_LIB)
+     SET(MARIADB_CLIENT_TARGET_NAME mariadb)
++    INCLUDE_DIRECTORIES(/usr/include/mysql)
+   ELSE()
+     SET(MARIADB_CLIENT_TARGET_NAME libmariadb)
+   ENDIF()
